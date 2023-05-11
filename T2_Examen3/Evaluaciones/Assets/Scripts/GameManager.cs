@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary; 
 
 
 public class GameManager : MonoBehaviour
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour
     public void LLave(){
 
         llave++;
-        LlaveTxt.text="llave:" +llave;
+        LlaveTxt.text="Monedas:" +llave;
        
     }
     
@@ -58,6 +60,23 @@ public class GameManager : MonoBehaviour
        cantidad++;
         Cambiartexto(); 
 
+    }
+     public void SaveGame(){
+        var filePath = Application.persistentDataPath + "/game1.dat";
+        
+        FileStream file;
+         
+        if (File.Exists(filePath))
+            file = File.OpenWrite(filePath);
+        else
+            file = File.Create(filePath);
+
+        GameData data = new GameData();
+        data.cantidad = cantidad;
+        //data.Moneda = m2;
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(file, data);
+        file.Close();  
     }
     private void Cambiartexto(){
         MonedasrarasTxt.text="puntos:"+ cantidad;

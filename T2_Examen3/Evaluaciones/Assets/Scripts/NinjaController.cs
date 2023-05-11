@@ -153,6 +153,9 @@ public class NinjaController : MonoBehaviour
         
 
     }
+    public void salir(){
+        SceneManager.LoadScene(0);
+    }
 
     private void Deslizar()
     {

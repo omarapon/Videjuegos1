@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &2092748149344253067
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -107,7 +107,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &2092748149344253056
 Rigidbody2D:
   serializedVersion: 4
@@ -167,3 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5982cd0459f264c8aee9f4622301ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpSound: {fileID: 0}
+  BulletSound: {fileID: 0}
+  MonedaSound: {fileID: 0}
+  MuertoSound: {fileID: 0}
+  bala: {fileID: 5053504141689383713, guid: d43c4bbc846dbdb4ba06739aa1cfdcfe, type: 3}
