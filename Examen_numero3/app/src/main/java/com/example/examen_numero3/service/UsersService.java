@@ -26,5 +26,7 @@ public interface UsersService {
  @POST("usuarios/{id}")
     Call<Contacto>crear(@Body Contacto contacto);
 
+    @GET("usuarios/{id}")
+    Call<Contacto>buscarv(@Path("id") int id);
 
 }

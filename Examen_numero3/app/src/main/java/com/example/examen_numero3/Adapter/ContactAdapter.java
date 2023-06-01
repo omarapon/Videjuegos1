@@ -1,5 +1,6 @@
 package com.example.examen_numero3.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.examen_numero3.Clases.Contacto;
+import com.example.examen_numero3.EditarActivity;
 import com.example.examen_numero3.R;
 import com.squareup.picasso.Picasso;
 
@@ -45,18 +47,27 @@ public class ContactAdapter extends RecyclerView.Adapter {
         Button btnEliminar = view.findViewById(R.id.btnEliminar);
 
 
+
         //mando los datos a las variable
         nombre.setText(contacto.Nombre);
         email.setText(contacto.email);
         username.setText(contacto.Username);
         Picasso.get().load(contacto.Foto).into(foto);
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), EditarActivity.class);
+                intent.putExtra("identificador", position);
+                v.getContext().startActivity(intent);
+            }
+        });
 
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return items.size();
     }
     public class ContactoUsuarioview extends RecyclerView.ViewHolder {
 
